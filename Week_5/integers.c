@@ -1,8 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-#define MAX 10
-
 struct Q_node{
     int* data;
     int max_size;
