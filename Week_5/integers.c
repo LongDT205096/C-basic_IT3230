@@ -1,6 +1,8 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+#define MAX 10
+
 struct Q_node{
     int* data;
     int max_size;
@@ -32,9 +34,9 @@ void enQueue(queue Q, int data){
         return;
     } else{
         Q->data[Q->rear] = data;
-        Q->rear = (Q->rear+1) % Q->max_size;
-        
         printf("%d enqueued to queue %d\n",data,Q->rear);
+
+        Q->rear = (Q->rear+1) % Q->max_size;
     }
 }
 
@@ -54,19 +56,19 @@ void displayQueue(queue Q){
         return;
     }
 
-    printf("Elements in Circular Queue are: ");
+    printf("Elements in Circular Queue are:\n");
 
     if (Q->rear > Q->front){
         for (int i = Q->front; i < Q->rear; i++)
-            printf("%d ",Q->data[i]);
+            printf("%d %d\n",Q->data[i],i);
     } 
     else if(Q->rear < Q->front){
         for (int i = Q->front; i < Q->max_size; i++){
-            printf("%d ",Q->data[i]);
+            printf("%d %d\n",Q->data[i],i);
         }
 
         for(int i = 0; i < Q->rear; i++){
-            printf("%d ",Q->data[i]);
+            printf("%d %d\n",Q->data[i],i);
         }
     }
     printf("\n\n");
@@ -81,6 +83,7 @@ int main(){
     }
     displayQueue(Q);
     
+
     deQueue(Q);
     enQueue(Q,6);
     displayQueue(Q);
