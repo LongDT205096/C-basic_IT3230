@@ -67,6 +67,7 @@ student_t delAt(student_t root,char *name){
     return root;  
 }
 
+//thực hiện thêm dữ liệu theo thứ tự bảng chữ cái
 student_t add_student(student_t root, student_t to_add) {
     student_t cur_student, prev_student = NULL;
     if(root == NULL) {
